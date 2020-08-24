@@ -2,4 +2,4 @@
 Projeto Ionic
 ======
 
-Projeto ionic, 1° vesão = vizualizar e ver notícias.
+Projeto ionic, 1° vesão = vizualizar e ver detalhes.
