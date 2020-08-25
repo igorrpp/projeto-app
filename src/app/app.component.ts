@@ -17,6 +17,11 @@ export class AppComponent implements OnInit {
       url: 'noticias-list',
       icon: 'bookmarks'
     },
+    {
+      title: 'Sair',
+      url: 'logoff',
+      icon: 'exit'
+    },
 
 
   ];

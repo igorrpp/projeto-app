@@ -1,2 +1,0 @@
-# projeto-app
-Projeto Ionic

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuardService } from 'src/service/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -10,11 +11,22 @@ const routes: Routes = [
 
   {
     path: 'noticias-list',
-    loadChildren: () => import('./noticias-list/noticias-list.module').then( m => m.NoticiasListPageModule)
+    loadChildren: () => import('./noticias-list/noticias-list.module').then( m => m.NoticiasListPageModule),
+    canActivate : [AuthGuardService]
   },
   {
     path: 'noticias-detalhe/:id',
-    loadChildren: () => import('./noticias-detalhe/noticias-detalhe.module').then( m => m.NoticiasDetalhePageModule)
+    loadChildren: () => import('./noticias-detalhe/noticias-detalhe.module').then( m => m.NoticiasDetalhePageModule),
+    canActivate : [AuthGuardService]
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'logoff',
+    loadChildren: () => import('./logoff/logoff.module').then( m => m.LogoffPageModule),
+    canActivate : [AuthGuardService]
   }
   
   
