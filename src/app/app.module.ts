@@ -11,6 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuardService } from 'src/service/auth-guard.service';
 import { AuthService } from 'src/service/auth.service';
+import { NoticiaService } from 'src/service/noticia.service';
+import { TemplatesService } from 'src/service/templates';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,7 +29,9 @@ import { AuthService } from 'src/service/auth.service';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     AuthGuardService,
-    AuthService
+    AuthService,
+    NoticiaService,
+    TemplatesService
   ],
   bootstrap: [AppComponent]
 })

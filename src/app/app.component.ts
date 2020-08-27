@@ -18,6 +18,11 @@ export class AppComponent implements OnInit {
       icon: 'bookmarks'
     },
     {
+      title: 'Nova Noticia',
+      url: 'noticias-new',
+      icon: 'newspaper'
+    },
+    {
       title: 'Sair',
       url: 'logoff',
       icon: 'exit'

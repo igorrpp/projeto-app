@@ -12,12 +12,12 @@ const routes: Routes = [
   {
     path: 'noticias-list',
     loadChildren: () => import('./noticias-list/noticias-list.module').then( m => m.NoticiasListPageModule),
-    canActivate : [AuthGuardService]
+    /*canActivate : [AuthGuardService]*/
   },
   {
     path: 'noticias-detalhe/:id',
     loadChildren: () => import('./noticias-detalhe/noticias-detalhe.module').then( m => m.NoticiasDetalhePageModule),
-    canActivate : [AuthGuardService]
+
   },
   {
     path: 'login',
@@ -26,7 +26,11 @@ const routes: Routes = [
   {
     path: 'logoff',
     loadChildren: () => import('./logoff/logoff.module').then( m => m.LogoffPageModule),
-    canActivate : [AuthGuardService]
+
+  },
+  {
+    path: 'noticias-new',
+    loadChildren: () => import('./noticias-new/noticias-new.module').then( m => m.NoticiasNewPageModule)
   }
   
   

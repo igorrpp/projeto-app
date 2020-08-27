@@ -3,6 +3,8 @@ import { Noticia } from 'src/model/noticia';
 import { NOTICIAS } from 'src/environments/mock-noticias';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import { NoticiaService } from 'src/service/noticia.service';
+import { TemplatesService } from 'src/service/templates';
 
 @Component({
   selector: 'app-noticias-list',
@@ -11,13 +13,27 @@ import { NavController } from '@ionic/angular';
 })
 export class NoticiasListPage implements OnInit {
 
-  public noticias : Noticia[] = NOTICIAS;
+  public noticias : Noticia[] = [];
 
   constructor(private activatedRoute: ActivatedRoute,
     private route : Router,
-    private navCtrl : NavController) { }
+    private navCtrl : NavController,
+    private noticiaServ : NoticiaService,
+    private templateServ : TemplatesService) { }
 
   ngOnInit() {
+    this.templateServ.loading.then(load=>{
+
+    load.present();
+    
+    this.noticiaServ.getNoticias().subscribe(data=>{
+      console.log(data);
+      this.noticias = data;
+
+      load.dismiss();
+      
+    })
+  })
   }
 
   buscaPorId(noticiaObj : Noticia){

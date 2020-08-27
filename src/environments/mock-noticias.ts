@@ -12,12 +12,12 @@ export const NOTICIAS : Noticia[] = [
         id:'2',
         titulo:'Notícias sobre o coronavírus e a crise política no Brasil',
         conteudo:'Covid-19 mata 250.000 pessoas na América Latina em menos de seis meses. Economia do Peru despenca 30,2%, seu pior recorde',
-        imagem:'https://img.pebmed.com.br/wp-content/uploads/2016/11/relacao-medico-paciente.jpg'
+        imagem:'https://conteudo.imguol.com.br/c/parceiros/40/2020/03/11/coronavirus-1583951542371_v2_956x500.jpg'
 },
     {
         id:'3',
         titulo:'As 5 principais notícias do mercado internacional desta terça-feira',
         conteudo:'Por Investing.com – Confira as cinco principais notícias desta terça-feira, 6 de novembro, sobre os mercados financeiros: 1 Eleições de meio ...',
-        imagem:'https://howafrica.com/wp-content/uploads/2015/11/Toronto-Business-News.jpg'
+        imagem:'https://media.moneytimes.com.br/uploads/2019/09/mercados-ibovespa.jpg'
     }
 ]
