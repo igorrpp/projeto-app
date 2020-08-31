@@ -13,34 +13,59 @@ import { TemplatesService } from 'src/service/templates';
 })
 export class NoticiasListPage implements OnInit {
 
-  public noticias : Noticia[] = [];
+  public noticias: Noticia[] = [];
 
   constructor(private activatedRoute: ActivatedRoute,
-    private route : Router,
-    private navCtrl : NavController,
-    private noticiaServ : NoticiaService,
-    private templateServ : TemplatesService) { }
-    
-    ngOnInit(){
+    private route: Router,
+    private navCtrl: NavController,
+    private noticiaServ: NoticiaService,
+    private templateServ: TemplatesService) { }
 
-    }
-    ionViewWillEnter() {
-    this.templateServ.loading.then(load=>{
+  ngOnInit() {
 
-    load.present();
-    
-    this.noticiaServ.getNoticias().subscribe(data=>{
-      console.log(data);
-      this.noticias = data;
+  }
+  ionViewWillEnter() {
+    this.templateServ.loading.then(load => {
 
-      load.dismiss();
-      
+      load.present();
+
+      this.noticiaServ.getNoticias().subscribe(data => {
+        console.log(data);
+        this.noticias = data;
+
+        load.dismiss();
+
+      })
     })
-  })
   }
 
-  buscaPorId(noticiaObj : Noticia){
-    this.navCtrl.navigateForward(['noticias-detalhe',noticiaObj.id]);
+  buscaPorId(noticiaObj: Noticia) {
+    this.navCtrl.navigateForward(['noticias-detalhe', noticiaObj.id]);
+
+  }
+
+  loadData(event) {
+    /* Chamado quando carregar o código */
+    this.noticiaServ.getNoticias().subscribe(data => {
+      
+      data.forEach(item=>{
+        this.noticias.push(item);
+      })
+
+      setTimeout(() => {
+        console.log('Done');
+        event.target.complete();
+
+        // App logic to determine if all data is loaded
+        // and disable the infinite scroll
+        if (data.length == 1000) {
+          event.target.disabled = true;
+        }
+      }, 500);
+    })
+    
+    
+    
 
   }
 

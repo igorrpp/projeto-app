@@ -20,11 +20,15 @@ export class NoticiasDetalhePage implements OnInit {
     private navCtrl: NavController) { }
 
   ngOnInit() {
+  }
+  ionViewWillEnter() {
+    this.noticia.imagem = null;
     this.activatedRoute.paramMap.subscribe(resp => {
 
       let id = resp.get('id');
       this.noticiaServ.noticiaId(id).subscribe(data => {
         this.noticia = data as unknown as Noticia;
+        this.noticia.imagem = this.noticiaServ.getImage(id);
 
       })
     })
@@ -38,7 +42,7 @@ export class NoticiasDetalhePage implements OnInit {
     this.navCtrl.navigateForward(['noticias-delete', noticiaObj.id])
 
   }
-  upload(noticiaObj){
+  upload(noticiaObj) {
     this.navCtrl.navigateForward(['noticias-upload', noticiaObj.id])
   }
 

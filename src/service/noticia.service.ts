@@ -14,7 +14,7 @@ export class NoticiaService {
     api: string = environment.apiNoticias + "/noticia/";
     s3Config = environment.awsAcess;
     // nome da pasta (bucket)
-    BucketName = 'imagem-app';
+    bucketName = 'imagem-app';
 
     constructor(private http: HttpClient) {
 
@@ -43,8 +43,7 @@ export class NoticiaService {
     }
 
     //nome da noticia + id + .jpg
-    fileUpload(file, fileName) {
-        
+    fileUpload(file, fileName): Promise<any> {
 
 
         const contentType = file.type;
@@ -52,30 +51,28 @@ export class NoticiaService {
 
         // vai gerar o nome do arquivo
         let name: string = file.name;
-        let arrayFileName = name.split('.');
+        let arrayFileName = name.split(',');
         let finalName = fileName + '.' + arrayFileName[1];
 
         const params = {
-            Bucket: this.BucketName,
+            Bucket: this.bucketName,
             Key: finalName,
             Body: file,
             ACL: 'public-read',
             ContentType: contentType
 
         };
-        
+
         const bucket = new S3(this.s3Config);
-        bucket.upload(params,function(err,data){
-            if(err){
-            
-                console.log('ERRO');
-                console.log(err);
-              
-            }else{
-                console.log('File Uploaded', data);
-            }
+        return bucket.upload(params).promise().then(data=>{
+            return data;
+
         })
     }
+
+    getImage(id){
+        return  `${environment.bucketNoticia}/noticia${id}.jpg`;
+      }
 
 
 }
