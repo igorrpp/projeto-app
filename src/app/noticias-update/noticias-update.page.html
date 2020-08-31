@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>noticias-update</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formGroup">
+
+    <ion-item>
+      <ion-label position="floating">Título</ion-label>
+      <ion-input type="text" formControlName="titulo"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Conteudo</ion-label>
+      <ion-textarea rows="6" formControlName="conteudo"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Imagem</ion-label>
+      <ion-textarea rows="6" formControlName="imagem"></ion-textarea>
+    </ion-item>
+
+    <ion-button (click)="atualizar()" expand="full" color="success">Atualizar</ion-button>
+
+  </form>
+
+</ion-content>

@@ -20,8 +20,11 @@ export class NoticiasListPage implements OnInit {
     private navCtrl : NavController,
     private noticiaServ : NoticiaService,
     private templateServ : TemplatesService) { }
+    
+    ngOnInit(){
 
-  ngOnInit() {
+    }
+    ionViewWillEnter() {
     this.templateServ.loading.then(load=>{
 
     load.present();

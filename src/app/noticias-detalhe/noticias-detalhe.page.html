@@ -3,22 +3,29 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-  
+
     <ion-title>Notícia</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  
 
-<ion-card>
-  <img src="{{noticia.imagem}}" />
-  <ion-card-header>
-    <ion-card-title>{{noticia.titulo}}</ion-card-title>
-  </ion-card-header>
-  <ion-card-content>
-    {{noticia.conteudo}}
-  </ion-card-content>
-</ion-card>
+
+  <ion-card>
+    <img src="{{noticia.imagem}}" />
+
+    <ion-button expand="full" color="primary" 
+    (click)="upload(noticia)">Atualizar Foto</ion-button>
+
+    <ion-card-header>
+
+      <ion-card-title>{{noticia.titulo}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{noticia.conteudo}}
+    </ion-card-content>
+  </ion-card>
+  <ion-button expand="full" color="warning" (click)="atualizar(noticia)">Atualizar</ion-button>
+  <ion-button expand="full" color="danger" (click)="deletar(noticia)">Deletar</ion-button>
 
 </ion-content>

@@ -12,27 +12,34 @@ import { NoticiaService } from 'src/service/noticia.service';
 })
 export class NoticiasDetalhePage implements OnInit {
 
-  noticia : Noticia = new Noticia();
+  noticia: Noticia = new Noticia();
 
   constructor(private activatedRoute: ActivatedRoute,
-    private route : Router,
-    private noticiaServ : NoticiaService) { }
+    private route: Router,
+    private noticiaServ: NoticiaService,
+    private navCtrl: NavController) { }
 
   ngOnInit() {
-    this.activatedRoute.paramMap.subscribe(resp=>{
-      
+    this.activatedRoute.paramMap.subscribe(resp => {
+
       let id = resp.get('id');
-     this.noticiaServ.noticiaId(id).subscribe(data=>{
-       this.noticia = data as unknown as Noticia;
-     
-     })
+      this.noticiaServ.noticiaId(id).subscribe(data => {
+        this.noticia = data as unknown as Noticia;
+
+      })
     })
   }
 
-  getNoticias(id){
-    
-      }
+  atualizar(noticiaObj) {
+    this.navCtrl.navigateForward(['noticias-update', noticiaObj.id])
 
+  }
+  deletar(noticiaObj) {
+    this.navCtrl.navigateForward(['noticias-delete', noticiaObj.id])
 
-  
+  }
+  upload(noticiaObj){
+    this.navCtrl.navigateForward(['noticias-upload', noticiaObj.id])
+  }
+
 }
