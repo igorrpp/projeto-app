@@ -32,6 +32,7 @@ export class NoticiasUploadPage implements OnInit {
     const file = this.toFile.item(0);
     this.noticiaServ.fileUpload(file,"noticia"+this.noticia.id)
 
+
   }
   onChange(event) {
     this.toFile = event.target.files;
