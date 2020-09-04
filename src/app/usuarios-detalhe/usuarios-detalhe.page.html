@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>usuarios-detalhe</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <img src="{{usuario.foto}}"/>
+
+    <ion-button expand="full" color="primary" 
+    (click)="upload(usuario)">Atualizar Foto</ion-button>
+
+  </ion-card>
+
+  <ion-card-header>
+
+    <ion-card-title><h4>Nome: {{usuario.name}}</h4></ion-card-title>
+
+    
+  </ion-card-header>
+
+  <ion-card-content>
+    Email: {{usuario.email}}
+    
+  </ion-card-content>
+  <ion-card-content>
+    Estado: {{usuario.Estado}}
+    
+  </ion-card-content>
+  <ion-card-content>
+    Cidade: {{usuario.Cidade}}
+    
+  </ion-card-content>
+
+  <ion-button expand="full" color="warning" (click)="atualizar(usuario)">Atualizar</ion-button>
+  <ion-button expand="full" color="danger" (click)="deletar(usuario)">Deletar</ion-button>
+
+
+</ion-content>

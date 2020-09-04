@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- Botão para voltar-->
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Imagem Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+<ion-input type="file" (change)="onChange($event)"></ion-input>
+
+<img src="{{location}}" width="100%"/>
+</ion-content>
+
+
+
+
+<ion-buttons slot="start">
+  <ion-back-button></ion-back-button>
+</ion-buttons>

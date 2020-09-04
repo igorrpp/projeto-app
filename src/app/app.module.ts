@@ -13,6 +13,7 @@ import { AuthGuardService } from 'src/service/auth-guard.service';
 import { AuthService } from 'src/service/auth.service';
 import { NoticiaService } from 'src/service/noticia.service';
 import { TemplatesService } from 'src/service/templates';
+import { UsuarioService } from 'src/service/usuario.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +23,8 @@ import { TemplatesService } from 'src/service/templates';
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
-    Interceptor
+    Interceptor,
+    
   ],
   providers: [
     StatusBar,
@@ -31,7 +33,8 @@ import { TemplatesService } from 'src/service/templates';
     AuthGuardService,
     AuthService,
     NoticiaService,
-    TemplatesService
+    TemplatesService,
+    UsuarioService
   ],
   bootstrap: [AppComponent]
 })

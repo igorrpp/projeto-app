@@ -15,12 +15,22 @@ export class AppComponent implements OnInit {
     {
       title: 'Noticias',
       url: 'noticias-list',
-      icon: 'bookmarks'
+      icon: 'globe'
+    },
+    {
+      title: 'Usuarios',
+      url: 'usuarios-list',
+      icon: 'people-circle'
     },
     {
       title: 'Nova Noticia',
       url: 'noticias-new',
       icon: 'newspaper'
+    },
+    {
+      title: 'Novo Usuario',
+      url: 'usuarios-new',
+      icon: 'person-add'
     },
     {
       title: 'Sair',
