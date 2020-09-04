@@ -2,4 +2,4 @@
 Projeto Ionic
 ======
 
-Projeto ionic, 1° vesão = vizualizar e ver detalhes.
+Projeto ionic, Versão final. Imagens do sistema na pasta "Mobile".
